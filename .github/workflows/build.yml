@@ -30,7 +30,7 @@ jobs:
             dep ensure
         fi
     - name: Build go
-      run: go build --ldflags "-extldflags -static" -v .
+      run: CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v .
 
     - name: Login to docker hub
       uses: actions-hub/docker/login@master
