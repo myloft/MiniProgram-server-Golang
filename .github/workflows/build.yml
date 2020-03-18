@@ -30,7 +30,7 @@ jobs:
             dep ensure
         fi
     - name: Build go
-      run: go build -v .
+      run: go build --ldflags "-extldflags -static" -v .
 
     - name: Login to docker hub
       uses: actions-hub/docker/login@master
